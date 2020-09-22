@@ -36,6 +36,8 @@
     "build": "lerna run build",
     "start": "lerna run --parallel --no-bail start -- --noClean",
     "lint": "lerna run lint --parallel",
+    "new-version": "lerna version --conventional-commits --yes",
+    "publish": "lerna publish from-git",
     "test": "lerna run test --parallel"
   },
   "devDependencies": {
