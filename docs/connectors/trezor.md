@@ -5,7 +5,7 @@
 - [Example](#example)
 
 ## Install
-`yarn add @web3-react/trezor-connector`
+`yarn add @web3-react-wan/trezor-connector`
 
 ## Arguments
 ```typescript
@@ -20,7 +20,7 @@ manifestAppUrl: string
 
 ## Example
 ```javascript
-import { TrezorConnector } from '@web3-react/trezor-connector'
+import { TrezorConnector } from '@web3-react-wan/trezor-connector'
 
 const trezor = new TrezorConnector({ chainId: 1, url: '...', manifestEmail: '...', manifestAppUrl: '...' })
 ```

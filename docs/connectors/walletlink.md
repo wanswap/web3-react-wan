@@ -5,7 +5,7 @@
 - [Example](#example)
 
 ## Install
-`yarn add @web3-react/walletlink-connector`
+`yarn add @web3-react-wan/walletlink-connector`
 
 ## Arguments
 ```typescript
@@ -16,7 +16,7 @@ appLogoUrl?: string
 
 ## Example
 ```javascript
-import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { WalletLinkConnector } from '@web3-react-wan/walletlink-connector'
 
 const walletlink = new WalletLinkConnector({ url: '...', appName: '...' })
 ```

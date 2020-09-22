@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "web3-react",
+  "name": "web3-react-wan",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Ethereum dApps",
   "keywords": [
     "react",
@@ -24,10 +24,10 @@
     "authereum",
     "magic"
   ],
-  "author": "Noah Zinsmeister <noahwz@gmail.com>",
+  "author": "Ji Shiwu <mutouji1@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/NoahZinsmeister/web3-react.git"
+    "url": "git://github.com/codeoneline/web3-react.git"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",

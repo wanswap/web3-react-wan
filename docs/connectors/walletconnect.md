@@ -11,7 +11,7 @@
     - [Example](#example-2)
 
 ## Install
-`yarn add @web3-react/walletconnect-connector`
+`yarn add @web3-react-wan/walletconnect-connector`
 
 ## Arguments
 ```typescript
@@ -23,7 +23,7 @@ pollingInterval?: number
 
 ## Example
 ```javascript
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { WalletConnectConnector } from '@web3-react-wan/walletconnect-connector'
 
 const walletconnect = new WalletConnectConnector({ rpc: { 1: '...' } })
 ```
@@ -34,7 +34,7 @@ const walletconnect = new WalletConnectConnector({ rpc: { 1: '...' } })
 
 #### Example
 ```javascript
-import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE } from '@web3-react-wan/walletconnect-connector'
 
 function Component () {
   useEffect(() => {
@@ -52,7 +52,7 @@ function Component () {
 
 #### Example
 ```javascript
-import { UserRejectedRequestError } from '@web3-react/walletconnect-connector'
+import { UserRejectedRequestError } from '@web3-react-wan/walletconnect-connector'
 
 function Component () {
   const { error } = useWeb3React()

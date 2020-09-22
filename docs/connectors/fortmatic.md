@@ -5,7 +5,7 @@
 - [Example](#example)
 
 ## Install
-`yarn add @web3-react/fortmatic-connector`
+`yarn add @web3-react-wan/fortmatic-connector`
 
 ## Arguments
 ```typescript
@@ -15,7 +15,7 @@ chainId: number
 
 ## Example
 ```javascript
-import { FortmaticConnector } from '@web3-react/fortmatic-connector'
+import { FortmaticConnector } from '@web3-react-wan/fortmatic-connector'
 
 const fortmatic = new FortmaticConnector({ apiKey: '...', chainId: 4 })
 ```

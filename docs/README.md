@@ -44,14 +44,14 @@ interface Web3ReactContextInterface<T = any> {
 }
 ```
 
-The documentation that follows is for `@web3-react/core`, the package responsible for managing this context. To understand where the data itself comes from, head over to the [connectors/ folder](./connectors/).
+The documentation that follows is for `@web3-react-wan/core`, the package responsible for managing this context. To understand where the data itself comes from, head over to the [connectors/ folder](./connectors/).
 
 ## Install
 - Grab a fresh copy of `react@>=16.8`...\
   `yarn add react`
 
 - ...and then install `web3-react`\
-  `yarn add @web3-react/core`
+  `yarn add @web3-react-wan/core`
 
 ## `web3-react@core` API Reference
 
@@ -65,7 +65,7 @@ getLibrary: (provider?: any, connector?: AbstractConnectorInterface) => any
 
 #### Example
 ```javascript
-import { Web3ReactProvider } from '@web3-react/core'
+import { Web3ReactProvider } from '@web3-react-wan/core'
 // import your favorite web3 convenience library here
 
 function getLibrary(provider, connector) {
@@ -91,7 +91,7 @@ key?: string
 
 #### Example
 ```javascript
-import { useWeb3React } from '@web3-react/core'
+import { useWeb3React } from '@web3-react-wan/core'
 
 function Component () {
   const web3React = useWeb3React()
@@ -115,7 +115,7 @@ key: string
 
 #### Example
 ```javascript
-import { Web3ReactProvider, createWeb3ReactRoot } from '@web3-react/core'
+import { Web3ReactProvider, createWeb3ReactRoot } from '@web3-react-wan/core'
 // import your favorite web3 convenience library here
 
 function getLibrary(provider) {
@@ -145,7 +145,7 @@ key?: string
 
 #### Example
 ```javascript
-import { getWeb3ReactContext } from '@web3-react/core'
+import { getWeb3ReactContext } from '@web3-react-wan/core'
 
 const web3ReactContext = getWeb3ReactContext()
 
@@ -157,7 +157,7 @@ This is an error which can be used to inform users that they're connected to an 
 
 #### Example
 ```javascript
-import { UnsupportedChainIdError } from '@web3-react/core'
+import { UnsupportedChainIdError } from '@web3-react-wan/core'
 // ...
 
 function Component () {

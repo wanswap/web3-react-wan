@@ -1,12 +1,10 @@
-import { ConnectorUpdate } from '@web3-react/types'
-import { AbstractConnector } from '@web3-react/abstract-connector'
+import { ConnectorUpdate } from '@web3-react-wan/types'
+import { AbstractConnector } from '@web3-react-wan/abstract-connector'
 
 const chainIdToNetwork: { [network: number]: string } = {
   1: 'mainnet',
-  3: 'ropsten',
-  4: 'rinkeby',
-  5: 'goerli',
-  42: 'kovan'
+  3: 'testnet',
+  6: 'pluto-dev'
 }
 
 interface AuthereumConnectorArguments {

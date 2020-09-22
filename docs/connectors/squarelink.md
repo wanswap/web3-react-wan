@@ -5,7 +5,7 @@
 - [Example](#example)
 
 ## Install
-`yarn add @web3-react/squarelink-connector`
+`yarn add @web3-react-wan/squarelink-connector`
 
 ## Arguments
 ```typescript
@@ -16,7 +16,7 @@ options?: any
 
 ## Example
 ```javascript
-import { SquarelinkConnector } from '@web3-react/squarelink-connector'
+import { SquarelinkConnector } from '@web3-react-wan/squarelink-connector'
 
 const squarelink = new SquarelinkConnector({
   clientId: '...',

@@ -1,5 +1,5 @@
-import { ConnectorUpdate } from '@web3-react/types'
-import { AbstractConnector } from '@web3-react/abstract-connector'
+import { ConnectorUpdate } from '@web3-react-wan/types'
+import { AbstractConnector } from '@web3-react-wan/abstract-connector'
 
 const CHAIN_ID = 1
 

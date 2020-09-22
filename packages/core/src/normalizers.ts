@@ -1,5 +1,5 @@
-import { arrayify } from '@ethersproject/bytes'
-import { keccak256 } from '@ethersproject/keccak256'
+import { arrayify } from '@wansproject/bytes'
+import { keccak256 } from '@wansproject/keccak256'
 import invariant from 'tiny-invariant'
 
 export function normalizeChainId(chainId: string | number): number {

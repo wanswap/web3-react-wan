@@ -1,5 +1,5 @@
 {
-  "name": "@web3-react/torus-connector",
+  "name": "@web3-react-wan/torus-connector",
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,10 @@
     "dapp",
     "torus"
   ],
-  "author": "Noah Zinsmeister <noahwz@gmail.com>",
+  "author": "Ji Shiwu <mutouji1@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/NoahZinsmeister/web3-react.git"
+    "url": "git://github.com/codeoneline/web3-react.git"
   },
   "main": "dist/index.js",
   "module": "dist/torus-connector.esm.js",
@@ -36,8 +36,8 @@
   },
   "dependencies": {
     "@toruslabs/torus-embed": "^1.8.0",
-    "@web3-react/abstract-connector": "^6.0.7",
-    "@web3-react/types": "^6.0.7"
+    "@web3-react-wan/abstract-connector": "^6.0.7",
+    "@web3-react-wan/types": "^6.0.7"
   },
   "license": "GPL-3.0-or-later"
 }

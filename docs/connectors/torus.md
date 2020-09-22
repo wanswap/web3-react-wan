@@ -5,7 +5,7 @@
 - [Example](#example)
 
 ## Install
-`yarn add @web3-react/torus-connector`
+`yarn add @web3-react-wan/torus-connector`
 
 ## Arguments
 ```typescript
@@ -16,7 +16,7 @@ constructorOptions?: any
 
 ## Example
 ```javascript
-import { TorusConnector } from '@web3-react/torus-connector'
+import { TorusConnector } from '@web3-react-wan/torus-connector'
 
 const torus = new TorusConnector({ chainId: 1 })
 ```
