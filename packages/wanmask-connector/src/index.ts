@@ -37,7 +37,7 @@ export class WanmaskConnector extends AbstractConnector {
     // try to activate + get account via eth_requestAccounts
     let account
     try {
-      account = await (window.wan3.currentProvider as Send)('eth_requestAccounts').then(
+      account = await (window.wan3.currentProvider as Send)('eth_accounts').then(
         sendReturn => parseSendReturn(sendReturn)[0]
       )
     } catch (error) {
