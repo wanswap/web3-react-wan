@@ -1,0 +1,43 @@
+{
+  "name": "@web3-react-wan/wanmask-connector",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.1.7",
+  "description": "Please visit the [parent `web3-react` repository](https://github.com/codeoneline/web3-react) for documentation and details on this package. ```",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "hooks",
+    "wanchain",
+    "javascript",
+    "typescript",
+    "web3",
+    "context",
+    "frontend",
+    "dapp",
+    "wanmask"
+  ],
+  "author": "codeoneline <mutouji1@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codeoneline/web3-react.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/wanmask-connector.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
+  },
+  "dependencies": {
+    "@web3-react-wan/abstract-connector": "^6.1.7",
+    "@web3-react-wan/types": "^6.1.7",
+    "tiny-warning": "^1.0.3"
+  },
+  "license": "GPL-3.0-or-later"
+}

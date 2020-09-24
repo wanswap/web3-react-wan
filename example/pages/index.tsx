@@ -332,6 +332,42 @@ function App() {
       </div>
 
       <hr style={{ margin: '2rem' }} />
+      <div
+        style={{
+          display: 'grid',
+          gridGap: '1rem',
+          gridTemplateColumns: 'fit-content',
+          maxWidth: '20rem',
+          margin: 'auto'
+        }}
+      >
+        {!!(library && account) && (
+          <button
+            style={{
+              height: '3rem',
+              borderRadius: '1rem',
+              cursor: 'pointer'
+            }}
+            onClick={() => {
+              library
+                .getSigner(account)
+                .sendTransaction({
+                  to: "0xf368ca0ff41caa0f71deac40c05ca05e017d1702",
+                  value: "0x01"
+                })
+                .then((signature: any) => {
+                  window.alert(`Success!\n\n${signature}`)
+                })
+                .catch((error: any) => {
+                  window.alert('Failure!' + (error && error.message ? `\n\n${error.message}` : ''))
+                })
+            }}
+          >
+            send wan
+          </button>
+        )}
+      </div>
+      <hr style={{ margin: '2rem' }} />
 
       <div
         style={{

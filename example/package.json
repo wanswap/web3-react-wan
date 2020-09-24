@@ -21,6 +21,7 @@
     "@web3-react-wan/trezor-connector": "latest",
     "@web3-react-wan/walletconnect-connector": "latest",
     "@web3-react-wan/walletlink-connector": "latest",
+    "@web3-react-wan/magic-connector": "latest",
     "next": "^9.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
