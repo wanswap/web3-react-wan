@@ -39,5 +39,6 @@
     "@web3-react-wan/types": "^6.1.7",
     "tiny-warning": "^1.0.3"
   },
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "gitHead": "4a7f42498015cca93ee9639793e8d8312c1916c6"
 }
