@@ -55,22 +55,22 @@ export class WanmaskConnector extends AbstractConnector {
   }
 
   public isSupported(): boolean {
-    return !!window.wan3;
+    return !!window.wan3
   }
 
   public async getChainId(): Promise<number | string> {
     return new Promise(async (resolve, reject) => {
       if (!this.isSupported()) {
-        reject(NoEthereumProviderError);
+        reject(NoEthereumProviderError)
       }
       window.wan3.version.getNetwork((err: Error, networkId: number) => {
         if (err) {
-          reject(err);
+          reject(err)
         } else {
-          resolve(Number(networkId));
+          resolve(Number(networkId))
         }
-      });
-    });
+      })
+    })
   }
 
   public async getAccount(): Promise<null | string> {
@@ -84,8 +84,7 @@ export class WanmaskConnector extends AbstractConnector {
     return account
   }
 
-  public deactivate() {
-  }
+  public deactivate() {}
 
   public async isAuthorized(): Promise<boolean> {
     if (!window.wan3) {
