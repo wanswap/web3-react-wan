@@ -37,7 +37,7 @@ export class WanmaskConnector extends AbstractConnector {
     // try to activate + get account via eth_requestAccounts
     let account
     try {
-      account = await (window.wan3.currentProvider as Send)('eth_accounts').then(
+      account = await (window.wan3.currentProvider.sendAsync as Send)('eth_accounts').then(
         sendReturn => parseSendReturn(sendReturn)[0]
       )
     } catch (error) {
@@ -79,7 +79,7 @@ export class WanmaskConnector extends AbstractConnector {
     }
 
     let account
-    account = parseSendReturn((window.wan3.currentProvider.send as SendOld)({ method: 'eth_accounts' }))[0]
+    account = parseSendReturn((window.wan3.currentProvider.sendAsync as SendOld)({ method: 'eth_accounts' }))[0]
 
     return account
   }
@@ -93,7 +93,7 @@ export class WanmaskConnector extends AbstractConnector {
     }
 
     try {
-      return await (window.wan3.currentProvider.send as Send)('eth_accounts').then(sendReturn => {
+      return await (window.wan3.currentProvider.sendAsync as Send)('eth_accounts').then(sendReturn => {
         if (parseSendReturn(sendReturn).length > 0) {
           return true
         } else {
