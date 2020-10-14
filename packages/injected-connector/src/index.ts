@@ -12,7 +12,7 @@ export class NoEthereumProviderError extends Error {
   public constructor() {
     super()
     this.name = this.constructor.name
-    this.message = 'No Ethereum provider was found on window.ethereum.'
+    this.message = 'No Ethereum provider was found on window.wanchain.'
   }
 }
 
@@ -38,7 +38,7 @@ export class InjectedConnector extends AbstractConnector {
     if (__DEV__) {
       console.log("Handling 'chainChanged' event with payload", chainId)
     }
-    this.emitUpdate({ chainId, provider: window.ethereum })
+    this.emitUpdate({ chainId, provider: window.wanchain })
   }
 
   private handleAccountsChanged(accounts: string[]): void {
@@ -63,29 +63,29 @@ export class InjectedConnector extends AbstractConnector {
     if (__DEV__) {
       console.log("Handling 'networkChanged' event with payload", networkId)
     }
-    this.emitUpdate({ chainId: networkId, provider: window.ethereum })
+    this.emitUpdate({ chainId: networkId, provider: window.wanchain })
   }
 
   public async activate(): Promise<ConnectorUpdate> {
-    if (!window.ethereum) {
+    if (!window.wanchain) {
       throw new NoEthereumProviderError()
     }
 
-    if (window.ethereum.on) {
-      window.ethereum.on('chainChanged', this.handleChainChanged)
-      window.ethereum.on('accountsChanged', this.handleAccountsChanged)
-      window.ethereum.on('close', this.handleClose)
-      window.ethereum.on('networkChanged', this.handleNetworkChanged)
+    if (window.wanchain.on) {
+      window.wanchain.on('chainChanged', this.handleChainChanged)
+      window.wanchain.on('accountsChanged', this.handleAccountsChanged)
+      window.wanchain.on('close', this.handleClose)
+      window.wanchain.on('networkChanged', this.handleNetworkChanged)
     }
 
-    if ((window.ethereum as any).isMetaMask) {
-      ;(window.ethereum as any).autoRefreshOnNetworkChange = false
+    if ((window.wanchain as any).isWanchainMask) {
+      ;(window.wanchain as any).autoRefreshOnNetworkChange = false
     }
 
     // try to activate + get account via eth_requestAccounts
     let account
     try {
-      account = await (window.ethereum.send as Send)('eth_requestAccounts').then(
+      account = await (window.wanchain.send as Send)('eth_requestAccounts').then(
         sendReturn => parseSendReturn(sendReturn)[0]
       )
     } catch (error) {
@@ -98,31 +98,31 @@ export class InjectedConnector extends AbstractConnector {
     // if unsuccessful, try enable
     if (!account) {
       // if enable is successful but doesn't return accounts, fall back to getAccount (not happy i have to do this...)
-      account = await window.ethereum.enable().then(sendReturn => sendReturn && parseSendReturn(sendReturn)[0])
+      account = await window.wanchain.enable().then(sendReturn => sendReturn && parseSendReturn(sendReturn)[0])
     }
 
-    return { provider: window.ethereum, ...(account ? { account } : {}) }
+    return { provider: window.wanchain, ...(account ? { account } : {}) }
   }
 
   public async getProvider(): Promise<any> {
-    return window.ethereum
+    return window.wanchain
   }
 
   public async getChainId(): Promise<number | string> {
-    if (!window.ethereum) {
+    if (!window.wanchain) {
       throw new NoEthereumProviderError()
     }
 
     let chainId
     try {
-      chainId = await (window.ethereum.send as Send)('eth_chainId').then(parseSendReturn)
+      chainId = await (window.wanchain.send as Send)('eth_chainId').then(parseSendReturn)
     } catch {
       warning(false, 'eth_chainId was unsuccessful, falling back to net_version')
     }
 
     if (!chainId) {
       try {
-        chainId = await (window.ethereum.send as Send)('net_version').then(parseSendReturn)
+        chainId = await (window.wanchain.send as Send)('net_version').then(parseSendReturn)
       } catch {
         warning(false, 'net_version was unsuccessful, falling back to net version v2')
       }
@@ -130,21 +130,21 @@ export class InjectedConnector extends AbstractConnector {
 
     if (!chainId) {
       try {
-        chainId = parseSendReturn((window.ethereum.send as SendOld)({ method: 'net_version' }))
+        chainId = parseSendReturn((window.wanchain.send as SendOld)({ method: 'net_version' }))
       } catch {
         warning(false, 'net_version v2 was unsuccessful, falling back to manual matches and static properties')
       }
     }
 
     if (!chainId) {
-      if ((window.ethereum as any).isDapper) {
-        chainId = parseSendReturn((window.ethereum as any).cachedResults.net_version)
+      if ((window.wanchain as any).isDapper) {
+        chainId = parseSendReturn((window.wanchain as any).cachedResults.net_version)
       } else {
         chainId =
-          (window.ethereum as any).chainId ||
-          (window.ethereum as any).netVersion ||
-          (window.ethereum as any).networkVersion ||
-          (window.ethereum as any)._chainId
+          (window.wanchain as any).chainId ||
+          (window.wanchain as any).netVersion ||
+          (window.wanchain as any).networkVersion ||
+          (window.wanchain as any)._chainId
       }
     }
 
@@ -152,48 +152,48 @@ export class InjectedConnector extends AbstractConnector {
   }
 
   public async getAccount(): Promise<null | string> {
-    if (!window.ethereum) {
+    if (!window.wanchain) {
       throw new NoEthereumProviderError()
     }
 
     let account
     try {
-      account = await (window.ethereum.send as Send)('eth_accounts').then(sendReturn => parseSendReturn(sendReturn)[0])
+      account = await (window.wanchain.send as Send)('eth_accounts').then(sendReturn => parseSendReturn(sendReturn)[0])
     } catch {
       warning(false, 'eth_accounts was unsuccessful, falling back to enable')
     }
 
     if (!account) {
       try {
-        account = await window.ethereum.enable().then(sendReturn => parseSendReturn(sendReturn)[0])
+        account = await window.wanchain.enable().then(sendReturn => parseSendReturn(sendReturn)[0])
       } catch {
         warning(false, 'enable was unsuccessful, falling back to eth_accounts v2')
       }
     }
 
     if (!account) {
-      account = parseSendReturn((window.ethereum.send as SendOld)({ method: 'eth_accounts' }))[0]
+      account = parseSendReturn((window.wanchain.send as SendOld)({ method: 'eth_accounts' }))[0]
     }
 
     return account
   }
 
   public deactivate() {
-    if (window.ethereum && window.ethereum.removeListener) {
-      window.ethereum.removeListener('chainChanged', this.handleChainChanged)
-      window.ethereum.removeListener('accountsChanged', this.handleAccountsChanged)
-      window.ethereum.removeListener('close', this.handleClose)
-      window.ethereum.removeListener('networkChanged', this.handleNetworkChanged)
+    if (window.wanchain && window.wanchain.removeListener) {
+      window.wanchain.removeListener('chainChanged', this.handleChainChanged)
+      window.wanchain.removeListener('accountsChanged', this.handleAccountsChanged)
+      window.wanchain.removeListener('close', this.handleClose)
+      window.wanchain.removeListener('networkChanged', this.handleNetworkChanged)
     }
   }
 
   public async isAuthorized(): Promise<boolean> {
-    if (!window.ethereum) {
+    if (!window.wanchain) {
       return false
     }
 
     try {
-      return await (window.ethereum.send as Send)('eth_accounts').then(sendReturn => {
+      return await (window.wanchain.send as Send)('eth_accounts').then(sendReturn => {
         if (parseSendReturn(sendReturn).length > 0) {
           return true
         } else {

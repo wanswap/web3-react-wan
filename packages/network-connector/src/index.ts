@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant'
 
 // taken from ethers.js, compatible interface with web3 provider
 type AsyncSendable = {
-  isMetaMask?: boolean
+  isWanchainMask?: boolean
   host?: string
   path?: string
   sendAsync?: (request: any, callback: (error: any, response: any) => void) => void
@@ -20,7 +20,7 @@ export class RequestError extends Error {
 }
 
 class MiniRpcProvider implements AsyncSendable {
-  public readonly isMetaMask: false = false
+  public readonly isWanchainMask: false = false
   public readonly chainId: number
   public readonly url: string
   public readonly host: string

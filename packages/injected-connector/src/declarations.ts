@@ -6,7 +6,7 @@ interface Ethereum {
 }
 
 declare interface Window {
-  ethereum?: Ethereum
+  wanchain?: Ethereum
 }
 
 declare const __DEV__: boolean
