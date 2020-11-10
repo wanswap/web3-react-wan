@@ -10,6 +10,9 @@ export function normalizeChainId(chainId: string | number): number {
     chainId = chainId.replace(/^Ox/, '0x')
 
     const parsedChainId = Number.parseInt(chainId, chainId.trim().substring(0, 2) === '0x' ? 16 : 10)
+    if (chainId.includes('NaN') || chainId.includes('loading') || Number.isNaN(parsedChainId) ) {
+      return 1
+    }
     invariant(!Number.isNaN(parsedChainId), `chainId ${chainId} is not an integer`)
     return parsedChainId
   } else {
