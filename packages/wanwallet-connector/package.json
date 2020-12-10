@@ -1,0 +1,48 @@
+{
+  "name": "@web3-react-wan/wanwallet-connector",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.1.14",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Wanchain dApps",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "hooks",
+    "wanchain",
+    "javascript",
+    "typescript",
+    "web3",
+    "context",
+    "frontend",
+    "dapp",
+    "trezor"
+  ],
+  "author": "Ji Shiwu <mutouji1@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codeoneline/web3-react.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/trezor-connector.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
+  },
+  "dependencies": {
+    "@0x/subproviders": "^5.0.4",
+    "@wanswap/subproviders": "^0.0.1",
+    "@web3-react-wan/abstract-connector": "^6.1.7",
+    "@web3-react-wan/types": "^6.1.7",
+    "trezor-connect": "^7.0.5"
+  },
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "tsdx": "^0.14.1"
+  }
+}
