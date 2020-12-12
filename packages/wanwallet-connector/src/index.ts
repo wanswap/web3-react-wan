@@ -43,9 +43,15 @@ export class WanWalletConnector extends AbstractConnector {
       this.provider = engine
     }
 
+    this.provider.on('disconnect', this.handleDisconnect)
+
     this.provider.start()
 
     return { provider: this.provider, chainId: this.chainId }
+  }
+
+  private handleDisconnect(): void {
+    this.emitDeactivate()
   }
 
   public async getProvider(): Promise<Web3ProviderEngine> {
@@ -66,6 +72,6 @@ export class WanWalletConnector extends AbstractConnector {
 
   public async close() {
     this.provider.stop()
-    await this.provider?.close()
+    this.emitDeactivate()
   }
 }
